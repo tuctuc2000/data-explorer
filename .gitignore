@@ -1,0 +1,14 @@
+# Node dependencies
+node_modules/
+
+# Build outputs
+dist/
+.vite/
+out/
+
+# IDE settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
