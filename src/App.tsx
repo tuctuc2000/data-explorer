@@ -1,16 +1,15 @@
-
 import React from "react";
-import { Header } from "./components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/NotFound";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <Header>
-        {/* date picker, language select, theme toggle will go here */}
-      </Header>
-      {/* TODO: Add your Dashboard or Routes below */}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
