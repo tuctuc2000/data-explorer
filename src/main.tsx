@@ -4,12 +4,16 @@ import App from "./App";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 import { GlobalStyle } from "./globalStyles";
+import { DataProvider } from "./context/DataContext";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const rootEl = document.getElementById("root")!;
+ReactDOM.createRoot(rootEl).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <App />
+      <DataProvider>
+        <App />
+      </DataProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
