@@ -23,9 +23,10 @@ export default function Dashboard() {
   return (
     <>
       <Header>
-        {/* date picker, language select, theme toggle */}
+        {/* we’ll wire up theme toggle here later */}
       </Header>
-      <div style={{ display: "flex" }}>
+
+      <div style={{ display: "flex", height: "calc(100vh - 64px)" }}>
         <FiltersPanel
           sinceDate={sinceDate}
           onSinceChange={setSinceDate}
@@ -34,11 +35,13 @@ export default function Dashboard() {
           metric={metric}
           onMetricChange={setMetric}
         />
-        <div style={{ flexGrow: 1, padding: "1rem" }}>
+
+        <main style={{ flexGrow: 1, padding: "1rem", overflowY: "auto" }}>
           <ChartSwitcher
             chartType={chartType}
             onChange={setChartType}
           />
+
           {loading && <p>Loading…</p>}
           {error   && <p>Error: {error}</p>}
           {!loading && !error && (
@@ -48,7 +51,7 @@ export default function Dashboard() {
               metric={metric}
             />
           )}
-        </div>
+        </main>
       </div>
     </>
   );
